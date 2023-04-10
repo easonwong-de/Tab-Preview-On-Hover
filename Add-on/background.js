@@ -7,7 +7,7 @@ function update() {
 				screenshots.push(
 					browser.tabs.captureTab(tabs[i].id, {
 						format: "jpeg",
-						quality: 50,
+						quality: 25,
 						scale: 0.5,
 					})
 				);
@@ -29,4 +29,4 @@ function update() {
 
 browser.runtime.onInstalled.addListener(update);
 
-setInterval(update, 1000);
+setInterval(update, 2500);
