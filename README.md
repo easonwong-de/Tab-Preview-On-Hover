@@ -1,11 +1,10 @@
 ![Experimental](https://img.shields.io/badge/-experimental-blueviolet)
 
-# Tab-Preview-On-Hover (experimental)
+# Tab-Preview-On-Hover
 
 Adds on-hover tab preview to Firefox (requires CSS theme)  
 
 <img width="80%" alt="Tab Preview On Hover" src="https://user-images.githubusercontent.com/16183548/230820629-db83b208-3187-4630-8a9d-126dff550a16.png">
-<br>
 
 ## How To Set Up
 
