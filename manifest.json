@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"name": "Hover Tab Preview",
 	"version": "0.0.1",
-	"description": "",
+	"description": "Adds tab preview to Firefox with the help of userChrome.css",
 	"author": "Eason Wong",
 	"browser_specific_settings": {
 		"gecko": {
