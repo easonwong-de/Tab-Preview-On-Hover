@@ -9,15 +9,9 @@
 			"id": "HTP@EasonWong"
 		}
 	},
-	"permissions": ["activeTab", "tabs", "theme"],
+	"permissions": ["activeTab", "tabs", "theme", "<all_urls>"],
 	"background": {
 		"scripts": ["background.js"],
 		"persistent": true
-	},
-	"content_scripts": [
-		{
-			"matches": ["<all_urls>"],
-			"js": ["content_script.js"]
-		}
-	]
+	}
 }
