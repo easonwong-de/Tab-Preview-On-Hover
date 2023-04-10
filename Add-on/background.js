@@ -26,7 +26,7 @@ function update() {
 				});
 			});
 		});
-	}, 50); // Sets delay to resolve potential conflicts with ATBC
+	}, 100); // Sets delay to resolve potential conflicts with ATBC
 }
 
 browser.tabs.onUpdated.addListener(update); // When new tab is opened / reloaded
