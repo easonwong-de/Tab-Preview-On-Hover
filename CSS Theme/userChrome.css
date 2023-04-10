@@ -2,56 +2,76 @@
 	background-image: none !important;
 }
 
-.tabbrowser-tab:hover::after {
+.tabbrowser-tab::after {
 	box-shadow: 0 0 50px black;
+	outline: 0.5px solid black;
+	pointer-events: none;
 	content: "";
+	display: none;
 	position: absolute;
 	z-index: 10000;
 	top: 50px;
-	width: 400px;
-	height: 300px;
+	opacity: 0;
+	width: 200px;
+	height: 150px;
+	transition-duration: 0.5s;
+	transition-property: opacity;
 	background-color: var(--lwt-accent-color);
 	background-image: var(--lwt-additional-images);
 	border: 1px solid var(--arrowpanel-border-color);
 	border-radius: 6px;
 }
 
+.tabbrowser-tab:hover::after {
+	opacity: 1;
+}
+
 .tabbrowser-tab:nth-of-type(1)::after {
+	display: block;
 	background-size: cover;
 }
 
 .tabbrowser-tab:nth-of-type(2)::after {
+	display: block;
 	background-size: 0, cover;
 }
 
 .tabbrowser-tab:nth-of-type(3)::after {
+	display: block;
 	background-size: 0, 0, cover;
 }
 
 .tabbrowser-tab:nth-of-type(4)::after {
+	display: block;
 	background-size: 0, 0, 0, cover;
 }
 
 .tabbrowser-tab:nth-of-type(5)::after {
+	display: block;
 	background-size: 0, 0, 0, 0, cover;
 }
 
 .tabbrowser-tab:nth-of-type(6)::after {
+	display: block;
 	background-size: 0, 0, 0, 0, 0, cover;
 }
 
 .tabbrowser-tab:nth-of-type(7)::after {
+	display: block;
 	background-size: 0, 0, 0, 0, 0, 0, cover;
 }
 
 .tabbrowser-tab:nth-of-type(8)::after {
+	display: block;
 	background-size: 0, 0, 0, 0, 0, 0, 0, cover;
 }
 
 .tabbrowser-tab:nth-of-type(9)::after {
-	background-size: 0, 0, 0, 0, 0, 0, 0, 0 cover;
+	display: block;
+	background-size: 0, 0, 0, 0, 0, 0, 0, 0, cover;
 }
 
 .tabbrowser-tab:nth-of-type(10)::after {
-	background-size: 0, 0, 0, 0, 0, 0, 0, 0, 0 cover;
+	display: block;
+	background-size: 0, 0, 0, 0, 0, 0, 0, 0, 0, cover;
 }
