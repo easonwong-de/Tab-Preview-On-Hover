@@ -1,4 +1,4 @@
-# Hover-Tab-Preview (experimental)
+# Tab-Preview-On-Hover (experimental)
 
 Adds tab preview to Firefox with the help of userChrome.css  
 
