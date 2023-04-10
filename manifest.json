@@ -1,0 +1,23 @@
+{
+	"manifest_version": 2,
+	"name": "Hover Tab Preview",
+	"version": "0.0.1",
+	"description": "",
+	"author": "Eason Wong",
+	"browser_specific_settings": {
+		"gecko": {
+			"id": "HTP@EasonWong"
+		}
+	},
+	"permissions": ["activeTab", "tabs", "theme"],
+	"background": {
+		"scripts": ["background.js"],
+		"persistent": true
+	},
+	"content_scripts": [
+		{
+			"matches": ["<all_urls>"],
+			"js": ["content_script.js"]
+		}
+	]
+}
