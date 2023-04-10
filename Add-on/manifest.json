@@ -2,14 +2,14 @@
 	"manifest_version": 2,
 	"name": "Tab Preview On Hover",
 	"version": "0.0.1",
-	"description": "Adds tab preview to Firefox with the help of userChrome.css",
+	"description": "Adds on-hover tab preview to Firefox (requires CSS theme)",
 	"author": "Eason Wong",
 	"browser_specific_settings": {
 		"gecko": {
 			"id": "TPOH@EasonWong"
 		}
 	},
-	"permissions": ["activeTab", "tabs", "theme", "<all_urls>"],
+	"permissions": ["tabs", "theme", "<all_urls>"],
 	"background": {
 		"scripts": ["background.js"],
 		"persistent": true

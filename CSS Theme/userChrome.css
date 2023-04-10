@@ -3,6 +3,11 @@
 }
 
 .tabbrowser-tab::after {
+	--preview-delay: 1s; /* Delay of tab preview when the cursor move onto a tab from outside of tab bar */
+	--preview-delay-tolerance: 0.5s; /* Max time period of cursor not hovering on tab bar before preview delay re-engages */
+}
+
+.tabbrowser-tab::after {
 	box-shadow: 0 0 50px black;
 	outline: 0.5px solid black;
 	pointer-events: none;
@@ -11,19 +16,35 @@
 	position: absolute;
 	z-index: 10000;
 	top: 50px;
-	opacity: 0;
 	width: 200px;
 	height: 150px;
-	transition-duration: 0.5s;
-	transition-property: opacity;
 	background-color: var(--lwt-accent-color);
 	background-image: var(--lwt-additional-images);
 	border: 1px solid var(--arrowpanel-border-color);
 	border-radius: 6px;
 }
 
+#tabbrowser-arrowscrollbox:not(:hover) .tabbrowser-tab::after {
+	transition: opacity 0.5s, filter 0s var(--preview-delay-tolerance);
+	filter: opacity(0);
+}
+
+#tabbrowser-arrowscrollbox:hover .tabbrowser-tab::after {
+	transition: opacity 0.5s, filter 0.5s var(--preview-delay);
+	filter: opacity(1);
+}
+
+.tabbrowser-tab:not(:hover)::after {
+	opacity: 0;
+}
+
 .tabbrowser-tab:hover::after {
 	opacity: 1;
+}
+
+.tabbrowser-tab[selected]:hover::after {
+	opacity: 0;
+	transition-duration: 0.1s !important;
 }
 
 .tabbrowser-tab:nth-of-type(1)::after {
