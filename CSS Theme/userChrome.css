@@ -1,3 +1,7 @@
+/* Tab Preview On Hover suppourting CSS theme */
+
+/* Move this file to profile folder > chrome, or append to existing userChrome.css */
+
 /* Version 0.0.1 */
 
 #navigator-toolbox:-moz-lwtheme {
