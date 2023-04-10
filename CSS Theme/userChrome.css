@@ -26,6 +26,7 @@
 	height: 150px;
 	background-color: var(--lwt-accent-color);
 	background-image: var(--lwt-additional-images);
+	background-repeat: no-repeat;
 	border: 1px solid var(--arrowpanel-border-color);
 	border-radius: 6px;
 }
