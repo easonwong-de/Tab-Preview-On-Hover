@@ -51,7 +51,6 @@
 
 .tabbrowser-tab[selected]:hover::after {
 	opacity: 0;
-	transition-duration: 0.1s !important;
 }
 
 .tabbrowser-tab:nth-of-type(1)::after {
