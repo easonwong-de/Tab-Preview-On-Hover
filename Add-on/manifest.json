@@ -6,7 +6,7 @@
 	"author": "Eason Wong",
 	"browser_specific_settings": {
 		"gecko": {
-			"id": "TPOH@EasonWong"
+			"id": "OHTP@EasonWong"
 		}
 	},
 	"permissions": ["tabs", "theme", "<all_urls>"],
