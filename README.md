@@ -1,4 +1,5 @@
 <img alt="Icon" src="https://addons.mozilla.org/static-server/img/addon-icons/default-64.d144b50f2bb8.png" width="128px">
+
 ![Mozilla Add-on](https://img.shields.io/amo/v/OHTP@EasonWong?color=blue&label=version)
 ![Experimental](https://img.shields.io/badge/-experimental-blueviolet)
 
