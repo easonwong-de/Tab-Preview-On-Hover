@@ -7,7 +7,7 @@ function update() {
 				screenshots.push(
 					browser.tabs.captureTab(tabs[i].id, {
 						format: "jpeg",
-						quality: 25,
+						quality: 50,
 						scale: 0.5,
 					})
 				);
