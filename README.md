@@ -24,7 +24,7 @@ There will be a delay before tab preview shows up. At the same time, if the curs
 
 <ol>
 	<li>Go to <code>about:support</code> and <code>locate Profile Folder</code></li>
-	<li>Download the <a href="https://raw.githubusercontent.com/easonwong-de/Tab-Preview-On-Hover/main/CSS%20Theme/userChrome.css">CSS theme</a> and move it into <code>locate Profile Folder -> chrome</code></li>
+	<li>Download the <a href="https://raw.githubusercontent.com/easonwong-de/Tab-Preview-On-Hover/main/CSS%20Theme/userChrome.css">CSS theme</a> and move it into <code>Profile Folder -> chrome</code></li>
 	<li>Go to <code>about:config</code> and turn <code>toolkit.legacyUserProfileCustomizations.stylesheets</code> to <code>true</code></li>
 	<li>Restart Firefox</li>
 </ol>
