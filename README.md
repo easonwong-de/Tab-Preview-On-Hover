@@ -13,7 +13,7 @@ Adds on-hover tab preview to Firefox (requires CSS theme)
 
 ## What Does The Add-on & CSS theme Do
 
-With the add-on and the <a href="https://raw.githubusercontent.com/easonwong-de/Tab-Preview-On-Hover/main/CSS%20Theme/userChrome.css">supporting CSS theme</a>, tab preview will appear when a tab is hovered over.
+With the add-on and the <a href="https://raw.githubusercontent.com/easonwong-de/Tab-Preview-On-Hover/main/CSS%20Theme/userChrome.css">supporting CSS theme</a>, tab preview will appear when a tab is hovered over.
 
 <img alt="Tab Preview On Hover" src="https://addons.mozilla.org/user-media/previews/full/281/281109.png" width="80%">
 <img alt="Tab Preview On Hover" src="https://addons.mozilla.org/user-media/previews/full/281/281110.png" width="80%">
