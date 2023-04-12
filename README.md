@@ -11,7 +11,7 @@ Adds on-hover tab preview to Firefox (requires CSS theme)
     <img src="https://github.com/easonwong-de/Tab-Preview-On-Hover/blob/main/Badges/Get_Addon_Badge_Firefox.png?raw=true" width="178" height="48">
 </a>
 
-## What Does The Add-on & CSS theme Do
+## What Does the Add-on & CSS Theme Do
 
 With the add-on and the <a href="https://raw.githubusercontent.com/easonwong-de/Tab-Preview-On-Hover/main/CSS%20Theme/userChrome.css">supporting CSS theme</a>, tab preview will appear when a tab is hovered over.
 
@@ -20,7 +20,7 @@ With the add-on and the <a href="https://raw.githubusercontent.com/easonwong-de/
 
 There will be a delay before tab preview shows up. At the same time, if the cursor hovers from one tab over another tab, there’ll be no delay. If the cursor leaves the tab area for a short moment and goes back, the delay will come back. The behaviour is controlled by the CSS theme, user can simply change <code>--preview-delay</code> and <code>--preview-delay-tolerance</code> to adjust the timing.
 
-## How To Install the CSS theme
+## How to Install the CSS Theme
 
 <ol>
 	<li>Go to <code>about:support</code> and locate <code>Profile Folder</code></li>
