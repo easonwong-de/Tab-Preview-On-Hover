@@ -34,5 +34,5 @@ There will be a delay before tab preview shows up. At the same time, if the curs
 <ol>
 	<li>Background image for the browser navbar will be disabled</li>
 	<li>Only the first ten tabs will have tab preview</li>
-	<li><a href="https://github.com/easonwong-de/Adaptive-Tab-Bar-Color">Adaptive Tab Bar Color</a> might cause the tab preview to disappear sometimes, because it resets browser theme every time it changes the tab bar color</li>
+	<li><a href="https://github.com/easonwong-de/Adaptive-Tab-Bar-Color">Adaptive Tab Bar Color</a> can cause the tab preview to disappear at times, as it resets the browser theme whenever it changes the color of the tab bar</li>
 </ol>
