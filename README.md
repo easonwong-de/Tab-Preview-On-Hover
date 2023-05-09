@@ -11,7 +11,7 @@ Adds on-hover tab preview to Firefox (requires CSS theme)
     <img src="https://github.com/easonwong-de/Tab-Preview-On-Hover/blob/main/Badges/Get_Addon_Badge_Firefox.png?raw=true" width="178" height="48">
 </a>
 
-## What Does The Add-on & CSS theme Do
+## What Does the Add-on & CSS Theme Do
 
 With the add-on and the <a href="https://raw.githubusercontent.com/easonwong-de/Tab-Preview-On-Hover/main/CSS%20Theme/userChrome.css">supporting CSS theme</a>, tab preview will appear when a tab is hovered over.
 
@@ -20,7 +20,7 @@ With the add-on and the <a href="https://raw.githubusercontent.com/easonwong-de/
 
 There will be a delay before tab preview shows up. At the same time, if the cursor hovers from one tab over another tab, there’ll be no delay. If the cursor leaves the tab area for a short moment and goes back, the delay will come back. The behaviour is controlled by the CSS theme, user can simply change <code>--preview-delay</code> and <code>--preview-delay-tolerance</code> to adjust the timing.
 
-## How To Install the CSS theme
+## How to Install the CSS Theme
 
 <ol>
 	<li>Go to <code>about:support</code> and locate <code>Profile Folder</code></li>
@@ -33,6 +33,7 @@ There will be a delay before tab preview shows up. At the same time, if the curs
 
 <ol>
 	<li>Background image for the browser navbar will be disabled</li>
-	<li>Only the first ten tabs will have tab preview</li>
-	<li><a href="https://github.com/easonwong-de/Adaptive-Tab-Bar-Color">Adaptive Tab Bar Color</a> might cause the tab preview to disappear sometimes, it’s because it resets theme</li>
+	<li>Incompatible with built-in browser themes “System theme – auto” and “Firefox Alpenglow”</li>
+	<li>Only the first ten tabs on the left will have tab preview</li>
+	<li><a href="https://github.com/easonwong-de/Adaptive-Tab-Bar-Color">Adaptive Tab Bar Color</a> can cause the tab preview to disappear at times, as it resets the browser theme whenever it changes the color of the tab bar</li>
 </ol>
