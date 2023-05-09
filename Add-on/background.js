@@ -2,7 +2,7 @@ function update() {
 	browser.windows.getAll({ populate: true }).then((windows) => {
 		windows.forEach((window) => {
 			const tabs = window.tabs;
-			const screenshots = [];
+			const data = [];
 			const capture_para = {
 				format: "jpeg",
 				quality: 75,
@@ -12,18 +12,18 @@ function update() {
 				if (tabs[i].status == "complete") {
 					if (tabs[i].discarded) {
 						browser.tabs.reload(tabs[i].id).then(() => {
-							screenshots.push(browser.tabs.captureTab(tabs[i].id, capture_para));
+							data.push(browser.tabs.captureTab(tabs[i].id, capture_para));
 						});
 					} else {
-						screenshots.push(browser.tabs.captureTab(tabs[i].id, capture_para));
+						data.push(browser.tabs.captureTab(tabs[i].id, capture_para));
 					}
 				} else {
-					screenshots.push(
-						"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+					data.push(
+						"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" // transparent png
 					);
 				}
 			}
-			Promise.all(screenshots).then((screenshots) => {
+			Promise.all(data).then((screenshots) => {
 				browser.theme.getCurrent(window.id).then((theme) => {
 					theme.images = { additional_backgrounds: screenshots };
 					browser.theme.update(window.id, theme);
