@@ -15,8 +15,8 @@ Adds on-hover tab preview to Firefox (requires CSS theme)
 
 With the add-on and the <a href="https://raw.githubusercontent.com/easonwong-de/Tab-Preview-On-Hover/main/CSS%20Theme/userChrome.css">supporting CSS theme</a>, tab preview will appear when a tab is hovered over.
 
-<img alt="Tab Preview On Hover" src="https://addons.mozilla.org/user-media/previews/full/281/281109.png" width="80%">
-<img alt="Tab Preview On Hover" src="https://addons.mozilla.org/user-media/previews/full/281/281110.png" width="80%">
+<img alt="Tab Preview On Hover" src="https://addons.mozilla.org/user-media/previews/full/283/283115.png" width="80%">
+<img alt="Tab Preview On Hover" src="https://addons.mozilla.org/user-media/previews/full/283/283117.png" width="80%">
 
 There will be a delay before tab preview shows up. At the same time, if the cursor hovers from one tab over another tab, there’ll be no delay. If the cursor leaves the tab area for a short moment and goes back, the delay will come back. The behaviour is controlled by the CSS theme, user can simply change <code>--preview-delay</code> and <code>--preview-delay-tolerance</code> to adjust the timing.
 
