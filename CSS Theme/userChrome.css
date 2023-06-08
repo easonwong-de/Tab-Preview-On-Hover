@@ -23,7 +23,7 @@
 	display: none;
 	position: absolute;
 	z-index: 10000;
-	top: 50px;
+	top: 50px /* Edit if the preview panel is misplaced */;
 	width: var(--preview-width);
 	height: var(--preview-height);
 	background-color: var(--lwt-accent-color);
