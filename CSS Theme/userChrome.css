@@ -2,7 +2,7 @@
 
 /* Move this file to profile folder > chrome, or append to existing userChrome.css */
 
-/* Version 0.1 */
+/* Version 2023-06-08 */
 
 #navigator-toolbox:-moz-lwtheme {
 	background-image: none !important;
