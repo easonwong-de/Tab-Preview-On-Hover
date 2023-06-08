@@ -2,7 +2,7 @@
 
 /* Move this file to profile folder > chrome, or append to existing userChrome.css */
 
-/* Version 0.0.1 */
+/* Version 0.1 */
 
 #navigator-toolbox:-moz-lwtheme {
 	background-image: none !important;
@@ -11,6 +11,8 @@
 .tabbrowser-tab::after {
 	--preview-delay: 1s; /* Delay of tab preview when the cursor move onto a tab from outside of tab bar */
 	--preview-delay-tolerance: 0.75s; /* Max time period of cursor not hovering on tab bar before preview delay re-engages */
+	--preview-width: 200px;
+	--preview-height: 150px;
 }
 
 .tabbrowser-tab::after {
@@ -22,13 +24,14 @@
 	position: absolute;
 	z-index: 10000;
 	top: 50px;
-	width: 200px;
-	height: 150px;
+	width: var(--preview-width);
+	height: var(--preview-height);
 	background-color: var(--lwt-accent-color);
 	background-image: var(--lwt-additional-images);
 	background-repeat: no-repeat;
+	background-clip: padding-box;
 	border: 1px solid var(--arrowpanel-border-color);
-	border-radius: 6px;
+	border-radius: 8px;
 }
 
 #tabbrowser-arrowscrollbox:not(:hover) .tabbrowser-tab::after {
@@ -56,47 +59,47 @@
 
 .tabbrowser-tab:nth-of-type(1)::after {
 	display: block;
-	background-size: cover;
+	background-size: cover, 0, 0, 0, 0, 0, 0, 0, 0, 0;
 }
 
 .tabbrowser-tab:nth-of-type(2)::after {
 	display: block;
-	background-size: 0, cover;
+	background-size: 0, cover, 0, 0, 0, 0, 0, 0, 0, 0;
 }
 
 .tabbrowser-tab:nth-of-type(3)::after {
 	display: block;
-	background-size: 0, 0, cover;
+	background-size: 0, 0, cover, 0, 0, 0, 0, 0, 0, 0;
 }
 
 .tabbrowser-tab:nth-of-type(4)::after {
 	display: block;
-	background-size: 0, 0, 0, cover;
+	background-size: 0, 0, 0, cover, 0, 0, 0, 0, 0, 0;
 }
 
 .tabbrowser-tab:nth-of-type(5)::after {
 	display: block;
-	background-size: 0, 0, 0, 0, cover;
+	background-size: 0, 0, 0, 0, cover, 0, 0, 0, 0, 0;
 }
 
 .tabbrowser-tab:nth-of-type(6)::after {
 	display: block;
-	background-size: 0, 0, 0, 0, 0, cover;
+	background-size: 0, 0, 0, 0, 0, cover, 0, 0, 0, 0;
 }
 
 .tabbrowser-tab:nth-of-type(7)::after {
 	display: block;
-	background-size: 0, 0, 0, 0, 0, 0, cover;
+	background-size: 0, 0, 0, 0, 0, 0, cover, 0, 0, 0;
 }
 
 .tabbrowser-tab:nth-of-type(8)::after {
 	display: block;
-	background-size: 0, 0, 0, 0, 0, 0, 0, cover;
+	background-size: 0, 0, 0, 0, 0, 0, 0, cover, 0, 0;
 }
 
 .tabbrowser-tab:nth-of-type(9)::after {
 	display: block;
-	background-size: 0, 0, 0, 0, 0, 0, 0, 0, cover;
+	background-size: 0, 0, 0, 0, 0, 0, 0, 0, cover, 0;
 }
 
 .tabbrowser-tab:nth-of-type(10)::after {
