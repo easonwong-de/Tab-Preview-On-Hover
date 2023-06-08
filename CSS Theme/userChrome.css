@@ -11,8 +11,8 @@
 .tabbrowser-tab::after {
 	--preview-delay: 1s; /* Delay of tab preview when the cursor move onto a tab from outside of tab bar */
 	--preview-delay-tolerance: 0.75s; /* Max time period of cursor not hovering on tab bar before preview delay re-engages */
-	--preview-width: 200px;
-	--preview-height: 150px;
+	--preview-width: 200px; /* Width of the preview panel */
+	--preview-height: 150px; /* Height of the preview panel */
 }
 
 .tabbrowser-tab::after {
