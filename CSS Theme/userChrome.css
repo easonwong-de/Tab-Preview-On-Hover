@@ -2,9 +2,12 @@
 
 /* Move this file to profile folder > chrome, or append to existing userChrome.css */
 
-/* Version 2023-06-08 */
+/* Use with Tab Preview On Hover add-on: https://addons.mozilla.org/firefox/addon/tab-preview-on-hover/ */
 
-#navigator-toolbox:-moz-lwtheme {
+/* Version 2023-06-28 */
+
+#navigator-toolbox:-moz-lwtheme,
+.browserContainer > findbar:-moz-lwtheme {
 	background-image: none !important;
 }
 
@@ -27,7 +30,7 @@
 	display: none;
 	position: absolute;
 	z-index: 10000;
-	top: 50px /* Edit if the preview panel is misplaced */;
+	top: 90px /* Edit if the preview panel is misplaced */;
 	width: var(--preview-width);
 	height: var(--preview-height);
 	background-color: var(--lwt-accent-color);
@@ -35,6 +38,7 @@
 	background-repeat: no-repeat;
 	background-clip: padding-box;
 	border-radius: 8px;
+	image-rendering: optimizequality;
 }
 
 #tabbrowser-arrowscrollbox:not(:hover) .tabbrowser-tab::after {
