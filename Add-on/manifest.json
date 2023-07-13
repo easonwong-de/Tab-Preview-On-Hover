@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "Tab Preview On Hover",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"description": "Adds on-hover tab preview to Firefox (requires CSS theme)",
 	"author": "Eason Wong",
 	"browser_specific_settings": {
@@ -13,5 +13,11 @@
 	"background": {
 		"scripts": ["background.js"],
 		"persistent": true
-	}
+	},
+	"content_scripts": [
+		{
+			"matches": ["<all_urls>"],
+			"js": ["tpoh_content_script.js"]
+		}
+	]
 }
