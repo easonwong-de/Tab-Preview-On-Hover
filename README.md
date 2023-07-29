@@ -35,5 +35,5 @@ There will be a delay before tab preview shows up. At the same time, if the curs
 	<li>Background image for the browser navbar will be disabled</li>
 	<li>Incompatible with built-in browser themes “System theme – auto” and “Firefox Alpenglow”</li>
 	<li>Only the first ten tabs on the left will have tab preview</li>
-	<li><a href="https://github.com/easonwong-de/Adaptive-Tab-Bar-Color">Adaptive Tab Bar Color</a> can cause the tab preview to disappear at times, as it resets the browser theme whenever it changes the color of the tab bar</li>
+	<li><a href="https://github.com/easonwong-de/Adaptive-Tab-Bar-Colour">Adaptive Tab Bar Colour</a> can cause the tab preview to disappear at times, as it resets the browser theme whenever it changes the colour of the tab bar</li>
 </ol>
