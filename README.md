@@ -5,7 +5,7 @@
 
 # Tab Preview On Hover
 
-Adds on-hover tab preview to Firefox (requires CSS theme)
+Adds on-hover tab preview to Firefox (requires CSS theme).
 
 <a href="https://addons.mozilla.org/firefox/addon/tab-preview-on-hover/" target="_blank">
     <img src="https://github.com/easonwong-de/Tab-Preview-On-Hover/blob/main/Badges/Get_Addon_Badge_Firefox.png?raw=true" width="178" height="48">
