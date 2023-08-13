@@ -19,5 +19,11 @@
 			"matches": ["<all_urls>"],
 			"js": ["tpoh_content_script.js"]
 		}
-	]
+	],
+	"icons": {
+		"32": "images/TPOH_32.png",
+		"64": "images/TPOH_64.png",
+		"96": "images/TPOH_96.png",
+		"128": "images/TPOH_128.png"
+	}
 }
