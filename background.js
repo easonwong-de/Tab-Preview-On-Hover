@@ -10,22 +10,20 @@ const textSize = 25;
 const textSizeSmall = 20;
 
 browser.runtime.onMessage.addListener((message) => {
+	console.log(message, Date.now());
 	clearInterval(updateInterval);
-	switch (message) {
-		case "TPOH_UPDATE":
-			update();
-			break;
-		case "TPOH_ON":
-			update();
-			updateInterval = setInterval(update, 2500);
-			break;
-		default:
-			break;
+	if (message == "TPOH_ON") {
+		update();
+		updateInterval = setInterval(update, 2500);
 	}
 });
 
+browser.runtime.onMessageExternal.addListener((message) => {
+	console.log(message, Date.now());
+	if (message == "TPOH_UPDATE") update();
+});
+
 function update() {
-	console.log("update", Date.now());
 	browser.windows.getAll({ populate: true }).then((windows) => {
 		windows.forEach((window) => {
 			browser.theme.getCurrent(window.id).then((theme) => updateTheme(theme, window));
