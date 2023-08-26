@@ -1,16 +1,31 @@
+var updateInterval = setInterval(update, 2500);
+
 const screenshotSettings = { format: "jpeg", quality: 75, scale: 0.5 };
 const canvasWidth = 400;
 const canvasHeight = 300;
-const textareaHeight = 200;
+const tabPreviewWidth = canvasWidth;
+const tabPreviewHeight = 200;
 const textMargin = 20;
 const textSize = 25;
 const textSizeSmall = 20;
 
 browser.runtime.onMessage.addListener((message) => {
-	console.log(message);
+	clearInterval(updateInterval);
+	switch (message) {
+		case "TPOH_UPDATE":
+			update();
+			break;
+		case "TPOH_ON":
+			update();
+			updateInterval = setInterval(update, 2500);
+			break;
+		default:
+			break;
+	}
 });
 
 function update() {
+	console.log("update", Date.now());
 	browser.windows.getAll({ populate: true }).then((windows) => {
 		windows.forEach((window) => {
 			browser.theme.getCurrent(window.id).then((theme) => updateTheme(theme, window));
@@ -35,9 +50,9 @@ function updateTheme(theme, window) {
 		canvasContext.fillStyle = backgroundColor;
 		canvasContext.fillRect(0, 0, canvasWidth, canvasHeight);
 		canvasContext.fillStyle = "#000000";
-		canvasContext.fillRect(0, 0, canvasWidth, textareaHeight);
+		canvasContext.fillRect(0, 0, tabPreviewWidth, tabPreviewHeight);
 		canvasContext.fillStyle = borderColor;
-		canvasContext.fillRect(0, textareaHeight, canvasWidth, 2);
+		canvasContext.fillRect(0, tabPreviewHeight, tabPreviewWidth, 2);
 		// Info box
 		canvasContext.textAlign = "left";
 		canvasContext.textBaseline = "middle";
@@ -46,45 +61,52 @@ function updateTheme(theme, window) {
 		textColorFade.addColorStop(1, "transparent");
 		canvasContext.fillStyle = textColorFade;
 		canvasContext.font = `normal normal 900 ${textSize}px apple-system, sans-serif, SF Pro, Arial`;
-		canvasContext.fillText(tab.title, textMargin, textareaHeight + (canvasHeight - textareaHeight) / 2 - textSizeSmall / 2 - 5);
+		canvasContext.fillText(tab.title, textMargin, tabPreviewHeight + (canvasHeight - tabPreviewHeight) / 2 - textSizeSmall / 2 - 5);
 		canvasContext.font = `normal normal 100 ${textSizeSmall}px apple-system, sans-serif, SF Pro, Arial`;
 		let hostname = new URL(tab.url).hostname;
-		canvasContext.fillText(
-			hostname === "" ? tab.url : hostname,
-			textMargin,
-			textareaHeight + (canvasHeight - textareaHeight) / 2 + textSize / 2 + 5
-		);
+		canvasContext.fillText(hostname || tab.url, textMargin, tabPreviewHeight + (canvasHeight - tabPreviewHeight) / 2 + textSize / 2 + 5);
 		// Preview box
 		let promise = new Promise((resolve) => {
 			if (tab.status == "complete" && !tab.discarded) {
 				let screenshot = new Image();
 				screenshot.onload = () => {
-					let tp_raw_ar = screenshot.width / screenshot.height;
-					let tp_ar = canvasWidth / textareaHeight;
-					if (tp_raw_ar > tp_ar)
+					let screenshotAspectRatio = screenshot.width / screenshot.height;
+					let tabPreviewAspectRatio = tabPreviewWidth / tabPreviewHeight;
+					if (screenshotAspectRatio > tabPreviewAspectRatio)
 						canvasContext.drawImage(
 							screenshot,
-							(screenshot.width - screenshot.height * tp_ar) / 2,
+							(screenshot.width - screenshot.height * tabPreviewAspectRatio) / 2,
 							0,
-							screenshot.height * tp_ar,
+							screenshot.height * tabPreviewAspectRatio,
 							screenshot.height,
 							0,
 							0,
-							canvasWidth,
-							textareaHeight
+							tabPreviewWidth,
+							tabPreviewHeight
 						);
-					else canvasContext.drawImage(screenshot, 0, 0, screenshot.width, screenshot.width / tp_ar, 0, 0, canvasWidth, textareaHeight);
+					else
+						canvasContext.drawImage(
+							screenshot,
+							0,
+							0,
+							screenshot.width,
+							screenshot.width / tabPreviewAspectRatio,
+							0,
+							0,
+							tabPreviewWidth,
+							tabPreviewHeight
+						);
 					resolve(canvas.toDataURL("image/jpeg"));
 					canvas.remove();
 				};
-				browser.tabs.captureTab(tab.id, screenshotSettings).then((tp_raw) => (screenshot.src = tp_raw));
+				browser.tabs.captureTab(tab.id, screenshotSettings).then((screenshotSource) => (screenshot.src = screenshotSource));
 			} else {
 				// Placeholder text
 				canvasContext.textAlign = "center";
 				canvasContext.textBaseline = "middle";
 				canvasContext.font = `50px apple-system, sans-serif, SF Pro, Arial`;
 				canvasContext.fillStyle = textColor;
-				canvasContext.fillText("Tab inactive", canvasWidth / 2, textareaHeight / 2);
+				canvasContext.fillText("Tab inactive", tabPreviewWidth / 2, tabPreviewHeight / 2);
 				resolve(canvas.toDataURL("image/jpeg"));
 				canvas.remove();
 			}
@@ -98,5 +120,3 @@ function updateTheme(theme, window) {
 }
 
 browser.runtime.onInstalled.addListener(update);
-
-setInterval(update, 2500);

@@ -1,7 +1,7 @@
 document.body.addEventListener("mouseleave", () => {
-	browser.runtime.sendMessage("UPDATE_ON");
+	browser.runtime.sendMessage("TPOH_ON");
 });
 
 document.body.addEventListener("mouseenter", () => {
-	browser.runtime.sendMessage("UPDATE_OFF");
+	browser.runtime.sendMessage("TPOH_OFF");
 });
