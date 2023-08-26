@@ -6,6 +6,10 @@ const textMargin = 20;
 const textSize = 25;
 const textSizeSmall = 20;
 
+browser.runtime.onMessage.addListener((message) => {
+	console.log(message);
+});
+
 function update() {
 	browser.windows.getAll({ populate: true }).then((windows) => {
 		windows.forEach((window) => {
@@ -94,9 +98,5 @@ function updateTheme(theme, window) {
 }
 
 browser.runtime.onInstalled.addListener(update);
-
-browser.runtime.onMessage.addListener((message) => {
-	console.log(message);
-});
 
 setInterval(update, 2500);
