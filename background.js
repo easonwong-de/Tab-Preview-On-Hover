@@ -19,7 +19,7 @@ function controller(message) {
 		case "TPOH_ON":
 			clearInterval(updateInterval);
 			updateToggle = true;
-			update_debounce();
+			setTimeout(update_debounce, 100);
 			updateInterval = setInterval(update, 2500);
 			break;
 		case "TPOH_OFF":
@@ -27,7 +27,7 @@ function controller(message) {
 			updateToggle = false;
 			break;
 		case "TPOH_UPDATE":
-			if (updateToggle) update_debounce();
+			if (updateToggle) setTimeout(update_debounce, 100);
 			break;
 		default:
 			break;
@@ -38,13 +38,13 @@ var debouncePrevRun = 0;
 var debounceTimeout = null;
 
 /**
- * Runs the given function with a maximum rate of 500ms.
+ * Runs the given function with a maximum rate of 250ms.
  * @param {function} fn Fuction without debounce.
  * @returns Function with debounce.
  * @author cloone8 on GitHub.
  */
 function addDebounce(fn) {
-	const timeoutMs = 500;
+	const timeoutMs = 250;
 	return () => {
 		const currentTime = Date.now();
 		if (debounceTimeout) {
@@ -155,6 +155,7 @@ function updateTheme(theme, window) {
 	Promise.all(tabPreviews).then((tabPreviews) => {
 		theme.images = { additional_backgrounds: tabPreviews };
 		browser.theme.update(window.id, theme);
+		console.log(theme.colors.frame, Date.now());
 	});
 }
 
