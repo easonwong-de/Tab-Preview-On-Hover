@@ -1,4 +1,6 @@
 ![Icon](https://github.com/easonwong-de/Tab-Preview-On-Hover/blob/main/images/TPOH_128.png)  
+![Mozilla Add-on Users](https://img.shields.io/amo/users/tab-preview-on-hover)
+![Mozilla Add-on Rating](https://img.shields.io/amo/stars/tab-preview-on-hover)
 ![Mozilla Add-on](https://img.shields.io/amo/v/OHTP@EasonWong?color=blue&label=version)
 
 # Tab Preview On Hover
