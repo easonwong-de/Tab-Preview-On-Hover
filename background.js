@@ -7,32 +7,44 @@ const textMargin = 20;
 const textSize = 25;
 const textSizeSmall = 20;
 
-var updateInterval = setInterval(update, 2500);
 const update_debounce = addDebounce(update);
 
-browser.runtime.onMessage.addListener((message) => {
-	clearInterval(updateInterval);
-	if (message == "TPOH_ON") {
-		update_debounce();
-		updateInterval = setInterval(update, 2500);
-	}
-});
+var updateToggle = true;
+var updateInterval = setInterval(update, 2500);
+browser.runtime.onMessage.addListener(controller);
+browser.runtime.onMessageExternal.addListener(controller);
 
-browser.runtime.onMessageExternal.addListener((message) => {
-	if (message == "TPOH_UPDATE") update_debounce();
-});
+function controller(message) {
+	switch (message) {
+		case "TPOH_ON":
+			clearInterval(updateInterval);
+			updateToggle = true;
+			update_debounce();
+			updateInterval = setInterval(update, 2500);
+			break;
+		case "TPOH_OFF":
+			clearInterval(updateInterval);
+			updateToggle = false;
+			break;
+		case "TPOH_UPDATE":
+			if (updateToggle) update_debounce();
+			break;
+		default:
+			break;
+	}
+}
 
 var debouncePrevRun = 0;
 var debounceTimeout = null;
 
 /**
- * Runs the given function with a maximum rate of 100ms.
+ * Runs the given function with a maximum rate of 500ms.
  * @param {function} fn Fuction without debounce.
  * @returns Function with debounce.
  * @author cloone8 on GitHub.
  */
 function addDebounce(fn) {
-	const timeoutMs = 1000;
+	const timeoutMs = 500;
 	return () => {
 		const currentTime = Date.now();
 		if (debounceTimeout) {
