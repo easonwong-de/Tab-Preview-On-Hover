@@ -11,7 +11,6 @@ var updateInterval = setInterval(update, 2500);
 const update_debounce = addDebounce(update);
 
 browser.runtime.onMessage.addListener((message) => {
-	console.log(message, Date.now());
 	clearInterval(updateInterval);
 	if (message == "TPOH_ON") {
 		update_debounce();
@@ -20,7 +19,6 @@ browser.runtime.onMessage.addListener((message) => {
 });
 
 browser.runtime.onMessageExternal.addListener((message) => {
-	console.log(message, Date.now());
 	if (message == "TPOH_UPDATE") update_debounce();
 });
 
@@ -58,7 +56,6 @@ function addDebounce(fn) {
 }
 
 function update() {
-	console.log("update", Date.now());
 	browser.windows.getAll({ populate: true }).then((windows) => {
 		windows.forEach((window) => {
 			browser.theme.getCurrent(window.id).then((theme) => updateTheme(theme, window));
