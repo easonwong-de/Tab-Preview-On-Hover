@@ -1,5 +1,3 @@
-var updateInterval = setInterval(update, 2500);
-
 const screenshotSettings = { format: "jpeg", quality: 75, scale: 0.5 };
 const canvasWidth = 400;
 const canvasHeight = 300;
@@ -9,21 +7,58 @@ const textMargin = 20;
 const textSize = 25;
 const textSizeSmall = 20;
 
+var updateInterval = setInterval(update, 2500);
+const update_debounce = addDebounce(update);
+
 browser.runtime.onMessage.addListener((message) => {
 	console.log(message, Date.now());
 	clearInterval(updateInterval);
 	if (message == "TPOH_ON") {
-		update();
+		update_debounce();
 		updateInterval = setInterval(update, 2500);
 	}
 });
 
 browser.runtime.onMessageExternal.addListener((message) => {
 	console.log(message, Date.now());
-	if (message == "TPOH_UPDATE") update();
+	if (message == "TPOH_UPDATE") update_debounce();
 });
 
+var debouncePrevRun = 0;
+var debounceTimeout = null;
+
+/**
+ * Runs the given function with a maximum rate of 100ms.
+ * @param {function} fn Fuction without debounce.
+ * @returns Function with debounce.
+ * @author cloone8 on GitHub.
+ */
+function addDebounce(fn) {
+	const timeoutMs = 1000;
+	return () => {
+		const currentTime = Date.now();
+		if (debounceTimeout) {
+			// Clear pending function
+			clearTimeout(debounceTimeout);
+			debounceTimeout = null;
+		}
+		if (currentTime - timeoutMs > debouncePrevRun) {
+			// No timeout => call the function right away
+			debouncePrevRun = currentTime;
+			fn();
+		} else {
+			// Blocked by timeout => delay the function call
+			debounceTimeout = setTimeout(() => {
+				debouncePrevRun = Date.now();
+				debounceTimeout = null;
+				fn();
+			}, timeoutMs - (currentTime - debouncePrevRun));
+		}
+	};
+}
+
 function update() {
+	console.log("update", Date.now());
 	browser.windows.getAll({ populate: true }).then((windows) => {
 		windows.forEach((window) => {
 			browser.theme.getCurrent(window.id).then((theme) => updateTheme(theme, window));
