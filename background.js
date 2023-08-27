@@ -79,7 +79,6 @@ function updateTheme(theme, window) {
 	let tabs = window.tabs;
 	let tabPreviews = [];
 	let backgroundColor = theme.colors.frame;
-	let borderColor = theme.colors.popup_border;
 	let textColor = theme.colors.toolbar_text;
 	for (let i = 0; i < Math.min(10, tabs.length); i++) {
 		let tab = tabs[i];
@@ -93,8 +92,6 @@ function updateTheme(theme, window) {
 		canvasContext.fillRect(0, 0, canvasWidth, canvasHeight);
 		canvasContext.fillStyle = "#000000";
 		canvasContext.fillRect(0, 0, tabPreviewWidth, tabPreviewHeight);
-		canvasContext.fillStyle = borderColor;
-		canvasContext.fillRect(0, tabPreviewHeight, tabPreviewWidth, 2);
 		// Info box
 		canvasContext.textAlign = "left";
 		canvasContext.textBaseline = "middle";
