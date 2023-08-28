@@ -11,15 +11,15 @@ const update_debounce = addDebounce(update);
 
 var updateToggle = true;
 var updateInterval = setInterval(update, 2500);
-browser.runtime.onMessage.addListener(controller);
-browser.runtime.onMessageExternal.addListener(controller);
+browser.runtime.onMessage.addListener(onMessage);
+browser.runtime.onMessageExternal.addListener(onMessage);
 
-function controller(message) {
+function onMessage(message) {
 	switch (message) {
 		case "TPOH_ON":
 			clearInterval(updateInterval);
 			updateToggle = true;
-			setTimeout(update_debounce, 100);
+			update_debounce();
 			updateInterval = setInterval(update, 2500);
 			break;
 		case "TPOH_OFF":
@@ -27,7 +27,7 @@ function controller(message) {
 			updateToggle = false;
 			break;
 		case "TPOH_UPDATE":
-			if (updateToggle) setTimeout(update_debounce, 100);
+			/* if (updateToggle) update_debounce(); */
 			break;
 		default:
 			break;
