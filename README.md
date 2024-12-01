@@ -3,7 +3,7 @@
 ![Mozilla Add-on Rating](https://img.shields.io/amo/stars/tab-preview-on-hover)
 ![Mozilla Add-on](https://img.shields.io/amo/v/OHTP@EasonWong?color=blue&label=version)
 
-# Tab Preview On Hover
+# Tab Preview On Hover (discontinued)
 
 Adds on-hover tab preview to Firefox (requires CSS theme).
 
